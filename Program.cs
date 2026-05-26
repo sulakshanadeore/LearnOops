@@ -6,28 +6,41 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        Student s = new Student();
-        Console.WriteLine("Enter rollno");
-        int r = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Enter student name");
-        string n = Console.ReadLine();
-        Console.WriteLine("Enter student city");
-        string c= Console.ReadLine();
-        s.AcceptData(r,n,c);
-        s.PrintData();
+        User userObj=new User();
+        Console.WriteLine("Enter username");
+        userObj.Username = Console.ReadLine();
 
 
-        Employee emp = new Employee();
-        Console.WriteLine("Enter Employee ID");
-        emp.EmployeeID = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Enter Employee Name");
-        emp.EmployeeName = Console.ReadLine();
+        Console.WriteLine($"Your initial password={userObj.Password}");
+
+        Console.WriteLine("Enter joining date");
+        userObj.JoiningDate= Convert.ToDateTime(Console.ReadLine());
+        userObj.DisplayJoiningDate();
+          
+
+
+        //Student s = new Student();
+        //Console.WriteLine("Enter rollno");
+        //int r = Convert.ToInt32(Console.ReadLine());
+
+        //Console.WriteLine("Enter student name");
+        //string n = Console.ReadLine();
+        //Console.WriteLine("Enter student city");
+        //string c= Console.ReadLine();
+        //s.AcceptData(r,n,c);
+        //s.PrintData();
+
+
+        //Employee emp = new Employee();
+        //Console.WriteLine("Enter Employee ID");
+        //emp.EmployeeID = Convert.ToInt32(Console.ReadLine());
+        //Console.WriteLine("Enter Employee Name");
+        //emp.EmployeeName = Console.ReadLine();
 
 
 
-        Console.WriteLine($"Entered employee id={emp.EmployeeID}");
-        Console.WriteLine($"Entered employee name={emp.EmployeeName}");
+        //Console.WriteLine($"Entered employee id={emp.EmployeeID}");
+        //Console.WriteLine($"Entered employee name={emp.EmployeeName}");
 
         //Console.WriteLine("Hello, World!");
         //Maths maths = new Maths();
