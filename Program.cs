@@ -1,4 +1,5 @@
-﻿using ObjectOrientedProgrammingConceptsLibrary;
+﻿using Microsoft.Win32.SafeHandles;
+using ObjectOrientedProgrammingConceptsLibrary;
 using System.Runtime.CompilerServices;
 
 internal class Program
@@ -6,17 +7,32 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        User userObj=new User();
-        Console.WriteLine("Enter username");
-        userObj.Username = Console.ReadLine();
+        SavingBankAccount sb1=new SavingBankAccount();
+        sb1.BankAccountNo = 101;
+        sb1.Balance = 100;
+        sb1.Deposit(1000);
+        Console.WriteLine($"Balance after deposit ={sb1.Balance}");//1100
+
+        sb1.Withdraw(500);//600
+        Console.WriteLine($"Balance after withdraw ={sb1.Balance}");
+        sb1.CalculateInterest();
+        Console.WriteLine($"Balance after interest calculation={sb1.Balance}");
+
+        sb1.Deposit(10000, "Online", "1232333");
+        Console.WriteLine($"Balance after deposit ={sb1.Balance}");
+
+        //User userObj=new User();
+        //Console.WriteLine("Enter username");
+        //userObj.Username = Console.ReadLine();
 
 
-        Console.WriteLine($"Your initial password={userObj.Password}");
+        //Console.WriteLine($
+        //"Your initial password={userObj.Password}");
 
-        Console.WriteLine("Enter joining date");
-        userObj.JoiningDate= Convert.ToDateTime(Console.ReadLine());
-        userObj.DisplayJoiningDate();
-          
+        //Console.WriteLine("Enter joining date");
+        //userObj.JoiningDate= Convert.ToDateTime(Console.ReadLine());
+        //userObj.DisplayJoiningDate();
+
 
 
         //Student s = new Student();
