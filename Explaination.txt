@@ -1,0 +1,213 @@
+﻿OOP/s
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+
+---------------------------------
+
+Security: Encapsulation a method/variable inside a class.
+Wrapper around it.
+
+
+Polymorphism:
+Overloading: Console.WriteLine,
+ Same method name,
+different number, type and sequence of parameters written for the same method name in a single class is called Overloading.
+
+
+class Console
+{
+WriteLine(string)
+Writeline(int)
+
+
+
+
+}
+
+Overriding: It necessarily requires inheritance.
+The method name is same in the base and child class,
+ it may or may not be virtual in the base class, 
+and method can be created as new or override depending on 
+whether the method in the base class is virtual or not.
+
+
+new(Method hiding-Compile time):redefine method in child class,
+Hides the parent method, can only be used when inheritance is there.
+Separate version of every code, it has nothing to do with the base class, then write "new".
+
+
+override(Runtime Polymorphism):redefine method in child class,can only be used when inheritance is there,
+Override replaces parent implementation with child implementation.
+Parent reference can call child reference,
+ override can be used only if method is virtual in the base or it is abstract.
+example: CalculateSalary(), the calculation way will be different for each type(mgr,srmgr,direction,asso director).
+class Employee
+{
+CalculateSalary()
+{
+
+}
+}
+class Manager:Employee
+{
+override CalculateSalary()
+{
+//super===base
+base.CalculateSalary() +++
+}
+}
+
+
+
+
+-----------------------------------
+class Cart
+{
+public void ShowDetails(int orderid)
+{
+loop---print the cart details
+
+}
+
+
+}
+
+class Payment:Cart
+{
+//new keyword hides the  member(ShowDetails) of the base class.
+public new void ShowDetails(int orderid)
+{
+
+}
+ 
+
+} 
+
+Warning: You are trying the hide the inherited member show details.
+------------------------------------------------------------------------------------------------------
+
+class Cart
+{
+public virtual void ShowDetails(int orderid)
+{
+loop---print the cart details
+
+}
+
+
+}
+
+class Payment:Cart
+{
+//override can be used if the method is maked virtual in the base class, you have no option than writing new if "virtual" is not written in the base class
+public override/new void ShowDetails(int orderid)
+{
+
+}
+ 
+
+} 
+-----------------------------------------------------------------------
+
+Inheritance:
+1) Single Level Inheritance:
+class Employee
+{
+CalculateSalary()
+{
+
+}
+}
+class Manager:Employee
+{
+override CalculateSalary()
+{
+//super===base
+base.CalculateSalary() +++
+}
+}
+
+//SrMGr: Manager, Employee
+class SrMgr:Manager
+{
+
+
+}
+2) Multiple Inheritance:Not directly supported in  C#.
+We implement using Interfaces, we can inherit multiple interfaces in a class.
+------------------------------------------------
+
+Access Modifiers:
+					Accessible in the same class  |  Same project | Derived Class | Other project
+private 						yes					no			no			no
+public						yes					yes			yes			yes		
+protected						yes					no			yes			no	
+protected internal				yes					yes			yes			yes(derived class)
+internal						yes					yes			yes			no
+----------------------------------------------------
+User{
+
+void login()
+{
+
+}
+}
+
+Customer: User
+{
+PlaceOrder()
+{
+}
+}
+
+abstract class Payment
+{
+abstract void Pay();
+}
+
+class UpiPayment:Payment
+{
+override void Pay()
+{
+
+}
+
+}
+
+class Dr/CreditCard:Payment
+{
+override void Pay()
+{
+
+}
+
+
+}
+
+
+//Association
+class Order
+{
+Customer cust;
+
+//print customer details for the particular order
+
+}
+
+abstract class Delivery
+{
+
+abstract void Deliver();
+}
+
+class HomeDelivery:delivery
+{
+override void Deliver()
+{
+cw(order  delivered successfully..)
+
+}
+
+}

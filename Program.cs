@@ -7,7 +7,7 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        SavingBankAccount sb1=new SavingBankAccount();
+        SavingBankAccount sb1 = new SavingBankAccount();
         sb1.BankAccountNo = 101;
         sb1.Balance = 100;
         sb1.Deposit(1000);
@@ -20,6 +20,12 @@ internal class Program
 
         sb1.Deposit(10000, "Online", "1232333");
         Console.WriteLine($"Balance after deposit ={sb1.Balance}");
+
+
+        Customer customer = new Customer();
+        customer.ApplyLoan();
+        customer.BuyInsurance(1000,sb1);
+        Console.WriteLine($"Balance after buying insurance ={sb1.Balance}");
 
         //User userObj=new User();
         //Console.WriteLine("Enter username");
